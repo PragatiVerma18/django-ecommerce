@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="container">
+    <div class="row my-5">
+      <div class="col-6">
+        <div class="container">
+          {% if object.image %}
+              <img src='{{ object.image.url }}' class='img-fluid' />
+          {% endif %}
+        </div>
+        <div class="row my-5">
+          <div class="col-6">
+            {% include 'products/snippets/update-cart.html' with product=object cart=cart %}
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6">
+        <h1>{{ object.title }}</h1>
+        <p>&#8377;  {{ object.price }}</p>
+        <p>{{ object.timestamp }}</p>
+        <p>{{ object.description }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col my-5">
+
+  </div>
+  <div class="col my-5 py-5">
+
+  </div>
+{% endblock %}

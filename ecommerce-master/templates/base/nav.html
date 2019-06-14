@@ -1,0 +1,52 @@
+{% url 'home' as home_url %}
+{% url 'contact' as contact_url %}
+{% url 'product:list' as product_list_url %}
+{% url 'login' as login_url %}
+{% url 'logout' as logout_url %}
+{% url 'register' as register_url %}
+{% url 'cart:home' as cart_url %}
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
+   <div class='container'>
+  <a class="navbar-brand" href="{{ home_url }}">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANgAAADYCAMAAAC+/t3fAAAAclBMVEUJEST///+2uL5ma3aLj5hgZXEYIDIUGy0RGCsPFykbIzT5+fp1eoSUl6AeJjdrcHxLUF48QlIzOkqtsLbS09fX2dyeoahESlioq7Lp6uvw8PEvNUWZnKTCxMlwdYCCho8lLD1UWme7vsPh4uRRV2RITlxH+dn3AAAErElEQVR4nO3c6VbjMAwFYJuWhNIFShcCFAhL3/8Vme5Jk1jyMrF8zr3/J/Z30IyYyI5SCIIgCIIgCIIgCIIgCIIgCIIgCIIgCIIgCIIgCIIgCIIgCIIgCIIgCIIgyH/PKCNzF3TBnEyY9QaazE8eZKVDHm7IDIMsxIDpMCvt80a7eoSNn4IstctUFEy/B1nqX74Yrj5h+iHIWup+IQ32Oguy2CfH1StMFyHWmrNc/cL0o/9Sd2uJsJV/2xzwXD3D9KfvSiXT1Tds/Oa5EqeFxYD5NrNfrqt3mB74rJOxWlgc2Mu9xzoTtqt/mF67L8NsYZFg+tl1lRGzhcWCrUaOq9xauGLAXJsZu4VFgzk2s6F4mP52WePRyhUHpm/tl8iKFGAvmfUSFi0sIkxvbFd4snTFgum53QKjTSqwpV0zs2phUWF6YvP8Gf+X3+iwcWnxfLsWFhemb/iP39q7IsL0F/fpuWULiw1jjyk+HFwxYXrKezhnBCELxmxm1i0sPmzJeTZrBCEMpj/oRzu0MAGw15J8NG8EIQ2mF9STnx1dsWH61/xgpxYmAkY0M8YUXSjMPHN3a2EyYMaZO3sEIRBmGlM4tjAhsO6ZO2+KLhfWOXN3bWFSYF0zd5sRhExY+8ydO0WXDGuduXOn6JJhbWMKuxGEVFjLmMKjhQmCNZsZf4ouG3Y9c7eYoguHXc3cbUcQsWBjWlabuTNaGPUOtR/YkCGrzNwZU/QJ9Ta/H9hgQsMqM3d6BFHkQmBqScvOzYzRwuYkvi/YG12M52ZGjyAm9E+1L5j6pH9kx5k7PUUvckGwEaMY9zN3xhR99++MGJh6ootxP3OnW9j+L6McGKcYN5wpepEJg3GKcc6Yom+VMJia07Al3cKOXUESTA1pGekqMoGw0cofdnqNIArGKEbKdf71RBaMLkZiu4vz/26Ewe6oYiS2e3mfJQymnr1gld1Kg6mpB2xReWcsDpb/uMOqU0JxMLV1htX2Kg+m1o6wRSkclpmK0bDV+tkrgTD16AS72qlEmKkYOzdaL0ShsOzFHnZ9CFAkTP1awxon5WTCVGELKxOB3XcVY8c2m1crhMLUlxVs2jzMLhWmFjawlutLYmGz9mJs3WTbHR+xMHXLhm3ablXIhakbLqz1Hp1g2OyVB2u/OS0Y1vqnmjtct1/vkQxrK8bmDjsudIqGlc1ibGyw62ycaJh6IGEdhSgdpr4pWOf5U+Gw8npodrW97hsHwmHqwwhbd3+KRjpMvZtghoPQ4mFXxwmYhZgATNXPttQK0XTZQD6sXozVvRmvlyUAqxVjZWvmC8UJwGrFeNlZYb71kgKsepyAWYhpwKpnW5iFmAiscrblXIjUhzHSgF2K8bQv8lNIacAuxXjcFv29oERg5+MEzEJMB3Y623LY1ZZeMhXY6WwLsxATgh2LcbenBee7d+nADmdbdntifek0HdjhbAuzEJOC7c+21E+pGJISLF/tYMRd9lNSgu3OtrA3lBRMbTSzEFOD5e/sbz+nBbMIYF4BLFwA8wpg4QKYVwALF8C8Ali4AOYVwMIFMK8AFi6AeQWwcAHMK4CFC2BeASxcAPMKYOECmFdSgf0BAStvpvwiu28AAAAASUVORK5CYII=" width="30" height="30" class="d-inline-block align-top" alt="">
+    {% if brand_name %} {{brand_name }} {% else %}EAG{% endif %}
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item {% if request.path == product_list_url %}active{% endif %}">
+        <a class="nav-link" href="{{ product_list_url }}">Product</a>
+      </li>
+      <li class="nav-item {% if request.path == contact_url %}active{% endif %}">
+        <a class="nav-link" href="{{ contact_url }}">Contact</a>
+      </li>
+
+      {% if request.user.is_authenticated %}
+       <li class="nav-item {% if request.path == logout_url %}active{% endif %}">
+        <a class="nav-link" href="{{ logout_url }}">Logout</a>
+      </li>
+      {% else %}
+      <li class="nav-item {% if request.path == login_url %}active{% endif %}">
+        <a class="nav-link" href="{{ login_url }}">Login</a>
+      </li>
+       <li class="nav-item {% if request.path == register_url %}active{% endif %}">
+        <a class="nav-link" href="{{ register_url }}">Register</a>
+      </li>
+      {% endif %}
+
+      <li class="nav-item {% if request.path == cart_url %}active{% endif %}">
+        <a class="nav-link" href="{{ cart_url }}"> {{ request.session.cart_items }} <i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+      </li>
+    </ul>
+    {% if request.user.is_authenticated %}
+      <i class="fa fa-user-o" aria-hidden="true" style="color:#DDDDDD;"></i>
+      <a class="nav-link" href="/">{{ user }}</a>
+    {% endif %}
+    {% include 'search/snippets/search-form.html' %}
+  </div>
+</div>
+</nav>

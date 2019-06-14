@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<div class="container">
+  <h1>Cart</h1>
+
+  {% if cart.products.exists %}
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Product Name</th>
+        <th>Product Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for product in cart.products.all %}
+      <tr>
+        <th scope="row">{{ forloop.counter }}</th>
+        <td><a href='{{ product.get_absolute_url }}'>{{ product.title }}</a>
+          {% include 'products/snippets/update-cart.html' with product=product cart=cart in_cart=True %}
+        </td>
+        <td>{{ product.price }}</td>
+      </tr>
+      {% endfor %}
+      <tr>
+        <td colspan="2"></td>
+        <td><b>Total</b> {{ cart.total }}</td>
+      </tr>
+      <tr>
+        <td colspan="2"></td>
+        <td><a class='btn btn-success' href="{% url "cart:checkout" %}">Proceed to Checkout</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+  {% else %}
+  <p class='lead'>Cart is empty</p>
+  {% endif %}
+</div>
+<div class="col my-5 py-5">
+
+</div>
+<div class="col my-5 py-5">
+
+</div>
+<div class="col my-5 py-3">
+
+</div>
+<div class="col my-5 py-3">
+
+</div>
+{% endblock %}
