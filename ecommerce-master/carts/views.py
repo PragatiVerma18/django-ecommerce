@@ -12,6 +12,7 @@ from orders.models import Order
 from products.models import Product
 from twilio.rest import Client
 from .models import Cart
+#from .forms import Quantity
 
 def cart_home(request):
     cart_obj, new_obj = Cart.objects.new_or_get(request)
@@ -98,3 +99,4 @@ def checkout_done_view(request):
     # )
     # print(message.sid)
     return render(request, "carts/checkout_done.html", {})
+

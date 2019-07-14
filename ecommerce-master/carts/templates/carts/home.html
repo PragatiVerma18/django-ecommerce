@@ -26,13 +26,13 @@
         </td>
         <td>{{ product.price }}</td>
         <td>
-          <form method="post">
+          <form method="POST">
             {% csrf_token %}
             <div class="quantity">
               <button class="plus-btn" type="submit" name="button">
                 +
               </button>
-              <input type="text" name="name" value="1" onkeydown="return false">
+              <input type="text" name="quantity" value="1" onkeydown="return false">
               <button class="minus-btn" type="submit" name="button">
                -
               </button>
@@ -40,6 +40,7 @@
          
         </form>
         </td>
+        <td>{{product.price }}</td>
       </tr>
       {% endfor %}
       <tr>
