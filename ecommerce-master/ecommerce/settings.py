@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'search',
 ]
 
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
