@@ -13,6 +13,8 @@
         <th>#</th>
         <th>Product Name</th>
         <th>Product Price</th>
+        <th>Quantity</th>
+        <th>Subtotal</th>
       </tr>
     </thead>
     <tbody>
@@ -23,6 +25,21 @@
           {% include 'products/snippets/update-cart.html' with product=product cart=cart in_cart=True %}
         </td>
         <td>{{ product.price }}</td>
+        <td>
+          <form method="post">
+            {% csrf_token %}
+            <div class="quantity">
+              <button class="plus-btn" type="submit" name="button">
+                +
+              </button>
+              <input type="text" name="name" value="1" onkeydown="return false">
+              <button class="minus-btn" type="submit" name="button">
+               -
+              </button>
+            </div>
+         
+        </form>
+        </td>
       </tr>
       {% endfor %}
       <tr>

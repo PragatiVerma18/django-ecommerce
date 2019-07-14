@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
+<link rel="stylesheet" href="{% static 'style.css' %}">
     <title>MEAG</title>
 
     {% include "base/css.html" %}
@@ -18,5 +18,6 @@
     
     {% block content %}{% endblock %}
     {% include "base/footer.html" %}
+    <script src="{% static 'app.js' %}"></script>
   </body>
 </html>
